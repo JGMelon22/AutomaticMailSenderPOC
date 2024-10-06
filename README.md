@@ -1,7 +1,6 @@
 # AutomaticMailSenderPOC
 <span>This is a simple ASP .NET Core Web API to send E-mails using MailKit and Mailtrap free service.</span> <br />
-<span>The future plan is to send e-mails in batches to have success contact with my college course Coordinator, as he
-    never responds.</span>
+<span>The motivation for this project is to send e-emails in batches to have success contact with my college course Coordinator, as he never responds.</span>
 
 <h3>Tech Stack</h3>
 <div style="display: flex; gap: 10px;">
