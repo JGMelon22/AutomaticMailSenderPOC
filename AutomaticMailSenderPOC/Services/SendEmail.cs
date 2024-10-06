@@ -23,6 +23,7 @@ public class SendEmail : ISendEmail
     public async Task<ServiceResponse<BasicEmailResponse>> SendEmailAsync(BasicEmailRequest basicEmail)
     {
         var serviceResponse = new ServiceResponse<BasicEmailResponse>();
+        byte counter = 0;
 
         try
         {
@@ -38,15 +39,22 @@ public class SendEmail : ISendEmail
                 Text = basicEmail.Body
             };
 
-            using (var client = new SmtpClient())
+            do
             {
-                await client.ConnectAsync(_smtpSettings.Server, _smtpSettings.Port, false);
+                using (var client = new SmtpClient())
+                {
+                    await client.ConnectAsync(_smtpSettings.Server, _smtpSettings.Port, false);
 
-                await client.AuthenticateAsync(_smtpSettings.MailTrapUserName, _smtpSettings.MailTrapPassword);
+                    await client.AuthenticateAsync(_smtpSettings.MailTrapUserName, _smtpSettings.MailTrapPassword);
 
-                await client.SendAsync(message);
-                await client.DisconnectAsync(true);
+                    await client.SendAsync(message);
+                    await client.DisconnectAsync(true);
+
+                    counter++;
+                }
             }
+
+            while (counter < 10);
 
             serviceResponse.Data = new BasicEmailResponse
             {
