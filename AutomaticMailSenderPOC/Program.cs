@@ -1,4 +1,6 @@
+using AutomaticMailSenderPOC.Interfaces;
 using AutomaticMailSenderPOC.Models;
+using AutomaticMailSenderPOC.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +12,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpSettings"));
+builder.Services.AddScoped<ISendEmail, SendEmail>();
 
 var app = builder.Build();
 

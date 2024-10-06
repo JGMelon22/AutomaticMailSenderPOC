@@ -10,10 +10,12 @@ namespace AutomaticMailSenderPOC.Services;
 public class SendEmail : ISendEmail
 {
     private readonly SmtpSettings _smtpSettings;
+    private readonly ILogger<SendEmail> _logger;
 
-    public SendEmail(IOptions<SmtpSettings> smtpSettings)
+    public SendEmail(IOptions<SmtpSettings> smtpSettings, ILogger<SendEmail> logger)
     {
         _smtpSettings = smtpSettings.Value;
+        _logger = logger;
     }
 
     public async Task<ServiceResponse<BasicEmailResponse>> SendEmailAsync(BasicEmailRequest basicEmail)
@@ -23,6 +25,8 @@ public class SendEmail : ISendEmail
         try
         {
             var message = new MimeMessage();
+
+            _logger.LogInformation("Sending E-mail....");
 
             message.From.Add(new MailboxAddress(_smtpSettings.SenderName, _smtpSettings.SenderEmail));
             message.To.Add(new MailboxAddress(basicEmail.RecipientName, basicEmail.Email));
@@ -34,7 +38,7 @@ public class SendEmail : ISendEmail
 
             using (var client = new SmtpClient())
             {
-                await client.ConnectAsync("sandbox.smtp.mailtrap.io", 2525, false);
+                await client.ConnectAsync(_smtpSettings.Server, _smtpSettings.Port, false);
 
                 await client.AuthenticateAsync(_smtpSettings.MailTrapUserName, _smtpSettings.MailTrapPassword);
 
@@ -44,7 +48,7 @@ public class SendEmail : ISendEmail
 
             serviceResponse.Data = new BasicEmailResponse
             {
-                RecipientName = basicEmail.RecipientName, // Using recipient name directly from request
+                RecipientName = basicEmail.RecipientName,
                 RecipientEmail = basicEmail.Email,
                 Subject = basicEmail.Subject
             };
@@ -54,6 +58,8 @@ public class SendEmail : ISendEmail
         {
             serviceResponse.Message = ex.Message;
             serviceResponse.Success = false;
+
+            _logger.LogError("Something went wrong!");
         }
 
         return serviceResponse;
