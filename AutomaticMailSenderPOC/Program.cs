@@ -1,5 +1,6 @@
+using System.Reflection;
+using AutomaticMailSenderPOC.Configuration;
 using AutomaticMailSenderPOC.Interfaces;
-using AutomaticMailSenderPOC.Models;
 using AutomaticMailSenderPOC.Services;
 using Microsoft.OpenApi.Models;
 
@@ -17,7 +18,7 @@ builder.Services.AddSwaggerGen(options =>
         Version = "v1",
         Title = "MailSender POC API",
         Description = "An ASP.NET Core Web API for Send E-mails",
-        TermsOfService = new Uri(string.Empty),
+        TermsOfService = new Uri("about:blank"),
         Contact = new OpenApiContact
         {
             Name = "GitHub Page",
@@ -29,6 +30,9 @@ builder.Services.AddSwaggerGen(options =>
             Url = new Uri("https://example.com/license")
         }
     });
+
+    var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 });
 
 builder.Services.Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpSettings"));

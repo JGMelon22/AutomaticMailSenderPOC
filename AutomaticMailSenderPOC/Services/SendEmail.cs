@@ -1,14 +1,16 @@
-using AutomaticMailSenderPOC.DTOs;
-using AutomaticMailSenderPOC.Interfaces;
-using AutomaticMailSenderPOC.Models;
-using MailKit.Net.Smtp;
-using Microsoft.Extensions.Options;
 using MimeKit;
+using AutomaticMailSenderPOC.Interfaces;
+using AutomaticMailSenderPOC.DTOs;
+using Microsoft.Extensions.Options;
+using MailKit.Net.Smtp;
+using AutomaticMailSenderPOC.Configuration;
+using AutomaticMailSenderPOC.Models;
 
 namespace AutomaticMailSenderPOC.Services;
 
 public class SendEmail : ISendEmail
 {
+    // private readonly SmtpSettings _smtpSettings;
     private readonly SmtpSettings _smtpSettings;
     private readonly ILogger<SendEmail> _logger;
 

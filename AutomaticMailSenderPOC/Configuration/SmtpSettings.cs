@@ -1,4 +1,4 @@
-namespace AutomaticMailSenderPOC.Models;
+namespace AutomaticMailSenderPOC.Configuration;
 
 public class SmtpSettings
 {
