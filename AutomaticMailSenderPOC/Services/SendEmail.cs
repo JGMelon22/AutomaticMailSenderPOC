@@ -33,7 +33,7 @@ public class SendEmail : ISendEmail
             message.Subject = basicEmail.Subject;
             message.Body = new TextPart("plain")
             {
-                Text = basicEmail.body
+                Text = basicEmail.Body
             };
 
             using (var client = new SmtpClient())

@@ -15,5 +15,5 @@ public record BasicEmailRequest(
     string Subject,
 
     [Required(ErrorMessage = "A subject must be set!")]
-    string body
+    string Body
 );
