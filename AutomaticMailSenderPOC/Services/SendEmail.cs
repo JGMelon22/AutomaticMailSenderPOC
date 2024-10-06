@@ -22,7 +22,7 @@ namespace AutomaticMailSenderPOC.Services
         public async Task<ServiceResponse<BasicEmailResponse>> SendEmailAsync(BasicEmailRequest basicEmail)
         {
             var serviceResponse = new ServiceResponse<BasicEmailResponse>();
-            byte counter = 0;
+            byte counter = 1;
 
             try
             {
@@ -31,14 +31,14 @@ namespace AutomaticMailSenderPOC.Services
                 using (var client = new SmtpClient())
                 {
                     await client.ConnectAsync(_smtpSettings.Server, _smtpSettings.Port, false);
-                    await client.AuthenticateAsync(_smtpSettings.SenderEmail, _smtpSettings.Password);
+                    await client.AuthenticateAsync(_smtpSettings.MailTrapUserName, _smtpSettings.MailTrapPassword);
 
-                    for (counter = 0; counter < 100; counter++)
+                    do
                     {
                         var message = new MimeMessage();
                         message.From.Add(new MailboxAddress(_smtpSettings.SenderName, _smtpSettings.SenderEmail));
                         message.To.Add(new MailboxAddress(basicEmail.RecipientName, basicEmail.Email));
-                        message.Subject = $"{basicEmail.Subject} (Email {counter + 1})";
+                        message.Subject = $"{basicEmail.Subject} (Email {counter})";
                         message.Body = new TextPart("plain")
                         {
                             Text = basicEmail.Body
@@ -46,8 +46,10 @@ namespace AutomaticMailSenderPOC.Services
 
                         await client.SendAsync(message);
 
-                        _logger.LogInformation($"Email {counter + 1} sent successfully to {basicEmail.Email}");
-                    }
+                        _logger.LogInformation($"Email {counter} sent successfully to {basicEmail.Email}");
+
+                        counter++;
+                    } while (counter <= 100);
 
                     await client.DisconnectAsync(true);
                 }
