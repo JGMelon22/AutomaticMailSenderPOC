@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DN56Rb11mfU=",
+  "dgSpecHash": "3wfEaRPqCD8=",
   "success": true,
-  "projectFilePath": "/home/joaog/Documents/TempCodes/WebApi/AutomaticMailSenderPOC/AutomaticMailSenderPOC/AutomaticMailSenderPOC.csproj",
+  "projectFilePath": "/home/joaog/Documents/Desenvolvimento/CSharp/AutomaticMailSenderPOC/AutomaticMailSenderPOC/AutomaticMailSenderPOC.csproj",
   "expectedPackageFiles": [
     "/home/joaog/.nuget/packages/bouncycastle.cryptography/2.4.0/bouncycastle.cryptography.2.4.0.nupkg.sha512",
     "/home/joaog/.nuget/packages/mailkit/4.8.0/mailkit.4.8.0.nupkg.sha512",
