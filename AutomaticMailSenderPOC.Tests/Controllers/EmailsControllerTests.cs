@@ -38,11 +38,11 @@ public class EmailsControllerTests
             Data = basicEmailResponse
         };
 
-        A.CallTo(() => _sendMail.SendEmailAsync(emailRequest))
+        A.CallTo(() => _sendMail.SendEmailAsync(emailRequest, 10))
             .Returns(Task.FromResult(serviceResponse));
 
         // Act
-        var result = await _emailsController.SendEmailAsync(emailRequest);
+        var result = await _emailsController.SendEmailAsync(emailRequest, 10);
 
         // Assert
         result.Should().NotBeNull();

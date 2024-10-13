@@ -19,14 +19,17 @@ namespace AutomaticMailSenderPOC.Services
             _logger = logger;
         }
 
-        public async Task<ServiceResponse<BasicEmailResponse>> SendEmailAsync(BasicEmailRequest basicEmail)
+        public async Task<ServiceResponse<BasicEmailResponse>> SendEmailAsync(BasicEmailRequest basicEmail, sbyte amount)
         {
             var serviceResponse = new ServiceResponse<BasicEmailResponse>();
-            byte counter = 1;
+            sbyte counter = 1;
 
             try
             {
-                _logger.LogInformation("Preparing to send 100 emails....");
+                if (amount < 1 || amount > 120)
+                    amount = 1;
+
+                _logger.LogInformation($"Preparing to send  {amount} emails....");
 
                 using (var client = new SmtpClient())
                 {
@@ -49,7 +52,7 @@ namespace AutomaticMailSenderPOC.Services
                         _logger.LogInformation($"Email {counter} sent successfully to {basicEmail.Email}");
 
                         counter++;
-                    } while (counter <= 100);
+                    } while (counter <= amount);
 
                     await client.DisconnectAsync(true);
                 }

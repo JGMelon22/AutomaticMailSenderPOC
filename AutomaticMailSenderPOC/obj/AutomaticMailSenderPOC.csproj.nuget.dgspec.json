@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/joaog/Documents/Desenvolvimento/CSharp/AutomaticMailSenderPOC/AutomaticMailSenderPOC/AutomaticMailSenderPOC.csproj": {}
+    "/home/joaog/Documents/TempCodes/WebApi/AutomaticMailSenderPOC/AutomaticMailSenderPOC/AutomaticMailSenderPOC.csproj": {}
   },
   "projects": {
-    "/home/joaog/Documents/Desenvolvimento/CSharp/AutomaticMailSenderPOC/AutomaticMailSenderPOC/AutomaticMailSenderPOC.csproj": {
+    "/home/joaog/Documents/TempCodes/WebApi/AutomaticMailSenderPOC/AutomaticMailSenderPOC/AutomaticMailSenderPOC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/joaog/Documents/Desenvolvimento/CSharp/AutomaticMailSenderPOC/AutomaticMailSenderPOC/AutomaticMailSenderPOC.csproj",
+        "projectUniqueName": "/home/joaog/Documents/TempCodes/WebApi/AutomaticMailSenderPOC/AutomaticMailSenderPOC/AutomaticMailSenderPOC.csproj",
         "projectName": "AutomaticMailSenderPOC",
-        "projectPath": "/home/joaog/Documents/Desenvolvimento/CSharp/AutomaticMailSenderPOC/AutomaticMailSenderPOC/AutomaticMailSenderPOC.csproj",
+        "projectPath": "/home/joaog/Documents/TempCodes/WebApi/AutomaticMailSenderPOC/AutomaticMailSenderPOC/AutomaticMailSenderPOC.csproj",
         "packagesPath": "/home/joaog/.nuget/packages/",
-        "outputPath": "/home/joaog/Documents/Desenvolvimento/CSharp/AutomaticMailSenderPOC/AutomaticMailSenderPOC/obj/",
+        "outputPath": "/home/joaog/Documents/TempCodes/WebApi/AutomaticMailSenderPOC/AutomaticMailSenderPOC/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/joaog/.nuget/NuGet/NuGet.Config"
@@ -20,8 +20,7 @@
           "net8.0"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.soclminer.com.br/nuget/": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
