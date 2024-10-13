@@ -1,6 +1,6 @@
 # AutomaticMailSenderPOC
 <span>This is a simple ASP .NET Core Web API to send E-mails using MailKit and Mailtrap free service.</span> <br />
-<span>The motivation for this project is to send e-emails in batches to have success contact with my college course Coordinator, as he never responds.</span>
+<span>The motivation for this project is to send e-emails in batches to have success contact with my college course coordinator, as he never responds.</span>
 
 <h3>Tech Stack</h3>
 <div style="display: flex; gap: 10px;">
@@ -13,11 +13,9 @@
 <span><strong>First of all, make sure you have .NET 8 SDK installed and a <a href="https://mailtrap.io/">Mailtrap account</a></strong></span>
 <ul>
     <li>Clone the repository</li>
-    <li>Inside of the sln folder, restore the dependencies with <code>dotnet restore</code></li>
-    <li>Change the directory to AutomaticMailSenderPOC with <code>cd AutomaticMailSenderPOC</code> and execute the
-        publisher project with <code>dotnet run</code></li>
-    <li>After that, you either have to init and create an user-secret or manually populate the
-        <code>appsettings.json</code> file to bind some data.</li>
+    <li>Inside of the <code>sln</code> directory, restore the dependencies with <code>dotnet restore</code></li>
+    <li>Change the directory to AutomaticMailSenderPOC with <code>cd AutomaticMailSenderPOC</code> and execute the project with <code>dotnet run</code></li>
+    <li>After that, you either have to init and create an user-secret or manually populate the <code>appsettings.json</code> file to bind some data.</li>
 </ul>
 
 <h4>First approach: populating <code>appsettings.json</code></h4>
