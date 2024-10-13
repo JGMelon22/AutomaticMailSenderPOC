@@ -50,8 +50,8 @@ dotnet user-secrets set "SmtpSettings:MailTrapPassword" "Your MailTrap Password"
 </code></pre>
 </ol>
 
-<img alt="zed-editor" src="https://github.com/user-attachments/assets/ba3ef202-f9da-47a7-b08a-be697197fd31" width="1080" height="auto">
-<img alt="swagger-ui" src="https://github.com/user-attachments/assets/2ccf2e5c-c37d-4494-9690-63178cfde3d3" width="720" height="auto">
+<img alt="zed-editor" src="https://github.com/user-attachments/assets/26cd4547-6390-41d4-aeef-19a62283dde8" width="1080" height="auto">
+<img alt="swagger-ui" src="https://github.com/user-attachments/assets/0c788aed-045f-4379-93fb-5e6e0a27ad0a" width="720" height="auto">
 
 <h3>References 📚</h3>
 <a href="https://macoratti.net/22/06/aspn_mailkitapi1.htm">ASP.NET Core - Enviando emails com Mailkit em uma API </a><br/>
