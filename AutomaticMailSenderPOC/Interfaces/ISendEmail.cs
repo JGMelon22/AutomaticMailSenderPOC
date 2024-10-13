@@ -5,5 +5,5 @@ namespace AutomaticMailSenderPOC.Interfaces;
 
 public interface ISendEmail
 {
-    Task<ServiceResponse<BasicEmailResponse>> SendEmailAsync(BasicEmailRequest basicEmail);
+    Task<ServiceResponse<BasicEmailResponse>> SendEmailAsync(BasicEmailRequest basicEmail, sbyte amount);
 }
